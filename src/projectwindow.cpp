@@ -45,12 +45,6 @@ ProjectWindow::ProjectWindow(I7Project *proj, QWidget *parent, Qt::WindowFlags f
 	// Set up the Documentation viewer
 	docsBrowser = new InformBrowser(tr("Documentation"), QUrl("inform:/index.html"), this);
 	// Set up the Index viewer
-	/* indexBrowser = new QDockWidget(tr("Index"), this, Qt::Dialog);
-	indexBrowser->hide();
-	indexWebEngine = new QWebEngineView(indexBrowser);
-	indexWebEngine->load(QUrl(proj->getPath().absolutePath() + "/Index/Welcome.html"));
-	indexWebEngine->show();
-    indexBrowser->setWidget(indexWebEngine); */
 	indexBrowser = new InformBrowser(tr("Index"), QUrl(proj->getPath().absolutePath() + "/Index/Welcome.html"), this);
 	setupButtons();
 	setUnifiedTitleAndToolBarOnMac(true);

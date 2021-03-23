@@ -50,24 +50,16 @@ protected:
 private slots:
     // void docsTriggered(bool checked);
 private:
-	// void setupSections();
-	// void setupMenus();
 	void setupButtons();
-	// void setupStatusBar();
 
 	Config *conf;
 	I7Project *proj;
 	InformBrowser *docsBrowser, *indexBrowser;
 	InformUrlHandler *urlHandler;
 	QAction *goAction, *replayAction, *releaseAction, *docsAction, *indexAction;
-	//QDockWidget *docsBrowser, *indexBrowser;
 	QPlainTextEdit *sourcePanel;
-	/* QSplitter *splitter;
-	QTabWidget *leftSide, *rightSide;
-	QTextBrowser *docBrowserL, *docBrowserR; */
 	QToolBar *toolBar;
 	QWebEngineProfile *webEngineProfile;
-	//QWebEngineView *docsWebEngine, *indexWebEngine;
 	I7SyntaxHighlighter *sourceHightlighter;
 };
 
