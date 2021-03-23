@@ -22,8 +22,6 @@ InformBrowser::InformBrowser(QString title, QUrl start, ProjectWindow* parent) :
     webChannel.open(QFile::ReadOnly);
     jsTweaks = webChannel.readAll();
     jsTweaks += "new QWebChannel(qt.webChannelTransport, function(channel){"
-                    "console.log('lel');"
-                    "console.log(channel.ProjectWindow);"
                     "window.Project = channel.objects.ProjectWindow;"
                 "});";
 
@@ -47,8 +45,7 @@ InformBrowser::~InformBrowser() {
 }
 
 void InformBrowser::loadFinished(bool) {
-    qDebug() << jsTweaks;
-    view->page()->runJavaScript(jsTweaks, [](const QVariant& v) { qDebug() << v.toString(); });
+    view->page()->runJavaScript(jsTweaks);
 }
 
 void InformBrowser::prepareClose() {

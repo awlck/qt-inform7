@@ -32,7 +32,7 @@
 #include "i7syntax.h"
 #include "informurlhandler.h"
 
-QString remapDocSource(const QString& code);
+QString remapDocSource(QString& code);
 
 ProjectWindow::ProjectWindow(I7Project *proj, QWidget *parent, Qt::WindowFlags flags) : QMainWindow(parent, flags) {
 	setWindowTitle(tr("Qt-Inform7: %1").arg(proj->getPath().path()));
@@ -84,7 +84,8 @@ void ProjectWindow::setupButtons() {
 }
 
 void ProjectWindow::pasteCode(const QString &code) {
-    sourcePanel->insertPlainText(remapDocSource(code));
+	QString theCode(code);
+    sourcePanel->insertPlainText(remapDocSource(theCode));
 }
 
 void ProjectWindow::selectView(const QString &view) {
